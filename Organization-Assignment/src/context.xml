@@ -1,0 +1,52 @@
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans.xsd">
+ 
+   
+
+     <bean id="Org" class="com.capgemini.spring.Organization">
+		<property name="orgId"       value="1" />
+		<property name="orgName"     value="ABC" />
+		<property name="marketPrice" value="125" />
+		<property name="address"     ref="Address" />
+
+                <property name = "directors">
+                  <list>
+                      <value>Abc</value>
+                      <value>Pqr</value>
+                  </list>
+               </property>
+
+               <property name = "branches">
+                  <set>
+                      <value>Xyz</value>
+                      <value>Lmn</value>
+                 </set>
+              </property>
+             <property name = "branchWiseHead">
+                 <map>
+                    <entry key  ="1" value = "A"/>
+                    <entry key  ="1" value = "B"/>
+                 </map>
+            </property>
+             <property name = "ipAddresses">
+                 <props>
+                    <prop key  ="India" >12.30.23.15</prop>
+                    <prop key  ="america">34.12.45.12</prop>
+                 </props>
+            </property>
+            <property name = "databaseDetails">
+                 <props>
+                    <prop key  ="url" >${dbconfig.url}</prop>
+                    <prop key  ="password">${dbconfig.password }</prop>
+                 </props>
+            </property>
+     </bean>
+
+     <bean id = "Address" class="com.capgemini.spring.Address">  
+             <property name="city"       value="Pune" />
+             <property name="state"      value="Maharashtra" />
+             <property name="country"    value="India" />
+     </bean>
+</beans>
